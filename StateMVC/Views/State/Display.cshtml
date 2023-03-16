@@ -1,0 +1,27 @@
+﻿@model DisplayVM
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <title>StateMVC</title>
+</head>
+<body>
+    <div>
+        <h3>
+            @Model.CompletedMessage
+        </h3>
+        <br />
+        <br />
+        <p>
+            Support E-mail:  @Model.SupportEmail
+        </p>
+        <p>
+            Company name: @Model.CompanyName
+        </p>
+        <p>
+            Cookie: @Model.Cookie
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿@model IndexVM
+@{
+
+
+
+}
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <title>StateMVC</title>
+</head>
+<body>
+    <div>
+        <h1>
+        @ViewBag.Message
+        </h1>
+    </div>
+
+    <form asp-controller="State" asp-action="Index">
+        <label asp-for="SupportEmail"></label>
+        <input asp-for="SupportEmail" />
+        <label asp-for="CompanyName"></label>
+        <input asp-for="CompanyName" />
+        <br />
+        <input type="submit" value="Create" />
+    </form>
+</body>
+</html>

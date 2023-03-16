@@ -1,15 +1,14 @@
-namespace StateMVC
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
-            var app = builder.Build();
+//using StateMVC.Models;
+//using Microsoft.EntityFrameworkCore;
 
-            app.MapGet("/", () => "Hello World!");
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllersWithViews();
+builder.Services.AddSession();
 
-            app.Run();
-        }
-    }
-}
+var app = builder.Build();
+
+app.UseSession();
+app.UseRouting();
+app.UseEndpoints(o => o.MapControllers());
+
+app.Run();
