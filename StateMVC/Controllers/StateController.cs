@@ -2,15 +2,20 @@
 using Microsoft.Extensions.Caching.Memory;
 using StateMVC.Views.States;
 using Microsoft.AspNetCore.Http;
+using StateMVC.Models;
 
 namespace StateMVC.Controllers
 {
     public class StateController : Controller
     {
         IMemoryCache cache;
-        public StateController(IMemoryCache cache)
+        DataService dataService;
+
+        public StateController(DataService data, IMemoryCache cache)
         {
             this.cache = cache;
+            dataService = data;
+
         }
 
         [HttpGet("")]
@@ -24,7 +29,8 @@ namespace StateMVC.Controllers
             if (ModelState.IsValid)
             {
                 TempData["Message"] = "Success";
-                cache.Set("SupportEmail", index.SupportEmail);
+                dataService.GetEmail(index);
+                //cache.Set("SupportEmail", index.SupportEmail);
                 HttpContext.Session.SetString("Company", index.CompanyName);
                 Response.Cookies.Append("Cookie", "Jag är en cookie",
                     new CookieOptions
